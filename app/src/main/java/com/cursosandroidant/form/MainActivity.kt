@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,9 +20,12 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
+    // Método para manipular los items del menu
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.action_send){
-            Toast.makeText(this, "Clik & send", Toast.LENGTH_SHORT).show()
+            // Forma tradicional usando findViewById
+            val name: String = findViewById<TextInputEditText>(R.id.etName).text.toString().trim()
+            Toast.makeText(this, name, Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)
     }
