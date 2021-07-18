@@ -122,6 +122,42 @@
             
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPlaceBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:hint="Lugar de nacimiento"
+            app:startIconDrawable="@drawable/ic_place"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPlaceBirth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textAutoComplete"
+                android:maxLength="@integer/place_birth_max_length"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNotes"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Notas"
+            app:startIconDrawable="@drawable/ic_notes"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:maxLength="@integer/notes_max_length"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 
 </ScrollView>
