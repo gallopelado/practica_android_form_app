@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/common_padding_default"
-            android:hint="Nombre"
+            android:hint="@string/hint_name"
             app:helperText="@string/common_mandatory_hint"
             app:startIconDrawable="@drawable/ic_person"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -48,7 +48,7 @@
             android:id="@+id/tilSurname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Apellidos"
+            android:hint="@string/hint_surname"
             app:helperText="@string/common_mandatory_hint"
             app:startIconDrawable="@drawable/ic_person"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -66,15 +66,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="@dimen/common_padding_default">
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:baselineAligned="false">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilHeight"
                 android:layout_width="0dp"
                 android:layout_weight="40"
                 android:layout_height="wrap_content"
-                android:hint="Estatura"
-                app:helperText="Mínimo 50cm"
+                android:hint="@string/hint_height"
+                app:helperText="@string/helper_height"
                 android:layout_marginEnd="@dimen/common_padding_min"
                 app:startIconDrawable="@drawable/ic_height"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -93,7 +94,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="60"
                 android:layout_height="wrap_content"
-                android:hint="Fecha de nacimiento"
+                android:hint="@string/hint_birthday"
                 android:layout_marginStart="@dimen/common_padding_min"
                 app:startIconDrawable="@drawable/ic_date"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -111,7 +112,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="País"
+            android:hint="@string/hint_country"
             android:layout_marginTop="@dimen/common_padding_default"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
             
@@ -127,7 +128,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/common_padding_default"
-            android:hint="Lugar de nacimiento"
+            android:hint="@string/hint_placebirth"
             app:startIconDrawable="@drawable/ic_place"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -145,7 +146,7 @@
             android:layout_marginTop="@dimen/common_padding_default"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Notas"
+            android:hint="@string/hint_notes"
             app:startIconDrawable="@drawable/ic_notes"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
