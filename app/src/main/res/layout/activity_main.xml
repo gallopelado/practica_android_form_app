@@ -93,8 +93,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="60"
                 android:layout_height="wrap_content"
-                android:hint="dd/mm/yyyy"
-                app:helperText="Fecha de nacimiento"
+                android:hint="Fecha de nacimiento"
                 android:layout_marginStart="@dimen/common_padding_min"
                 app:startIconDrawable="@drawable/ic_date"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -108,6 +107,20 @@
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
+        
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="País"
+            android:layout_marginTop="@dimen/common_padding_default"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/actvCountries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
