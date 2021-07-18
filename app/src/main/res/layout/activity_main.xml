@@ -23,11 +23,23 @@
             app:startIconDrawable="@drawable/ic_person"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
+            <!--
+                inputType: Indica el tipo de entrada y es posible combinarse con otros
+                maxLength: Indica la máxima cantidad de caracteres a ingresar
+                imeOptions: Indica el tipo de acción("actionNext") luego del enter.
+                nextFocusForward: Indica a qué elemento afectará dicha acción.
+             -->
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName|textCapWords"/><!-- Indica el tipo de entrada y es posible combinarse con otros -->
+                android:inputType="textPersonName|textCapWords"
+                android:maxLength="@integer/name_max_length"/>
+                <!--
+                android:imeOptions="actionNext"
+                android:nextFocusForward="@id/etHeight"
+                />
+                -->
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,7 +57,25 @@
                 android:id="@+id/etSurname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName|textCapWords"/>
+                android:inputType="textPersonName|textCapWords"
+                android:maxLength="@integer/name_max_length"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Altura"
+            app:helperText="@string/common_mandatory_hint"
+            app:startIconDrawable="@drawable/ic_person"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="@integer/name_max_length"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
