@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Form</string>
+    <string name="common_mandatory_hint">Obligatorio</string>
 </resources>
