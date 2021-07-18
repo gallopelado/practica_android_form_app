@@ -85,6 +85,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
+                    android:imeOptions="actionNext"
+                    android:nextFocusForward="@id/etPlaceBirth"
                     android:maxLength="@integer/height_max_length"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -148,6 +150,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/hint_notes"
             app:startIconDrawable="@drawable/ic_notes"
+            app:counterEnabled="true"
+            app:counterMaxLength="@integer/notes_max_length"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
