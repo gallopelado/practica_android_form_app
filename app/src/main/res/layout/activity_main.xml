@@ -26,7 +26,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName|textCapWords"/><!-- Indica el tipo de entrada y es posible combinarse con otros -->
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -43,7 +44,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etSurname"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName|textCapWords"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
