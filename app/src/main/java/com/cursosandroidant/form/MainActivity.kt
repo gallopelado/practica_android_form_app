@@ -39,33 +39,50 @@ class MainActivity : AppCompatActivity() {
     * */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.action_send){
-            // Forma tradicional usando findViewById
-            val name: String = findViewById<TextInputEditText>(R.id.etName).text.toString().trim()
-            // Forma nueva con viewbinding
-            val surname: String = binding.etSurname.text.toString().trim()
-            // Uso del toast
-            //Toast.makeText(this, "$name $surname", Toast.LENGTH_SHORT).show()
+            if(validFields()) {
+                // Forma tradicional usando findViewById
+                val name: String =
+                    findViewById<TextInputEditText>(R.id.etName).text.toString().trim()
+                // Forma nueva con viewbinding
+                val surname: String = binding.etSurname.text.toString().trim()
+                // Uso del toast
+                //Toast.makeText(this, "$name $surname", Toast.LENGTH_SHORT).show()
 
-            val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-            builder.setTitle(getString(R.string.dialog_title))
-            builder.setMessage("$name $surname")
-            // dos parámetros, el mensaje y el evento, que ahora fue recortado a dialogInterface
-            // dentro de las llaves metemos el Toast para probar el evento
-            builder.setPositiveButton(getString(R.string.dialog_ok), { dialogInterface, i ->
-                Toast.makeText(this, "positive button", Toast.LENGTH_SHORT).show()
-            })
-            // Ahora el botón negative, con la opción por defecto
-            // también es posible usar null en vez del click listener
-            builder.setNegativeButton(getString(R.string.dialog_cancel), DialogInterface.OnClickListener { dialog, which ->
-                Toast.makeText(this, "negative button", Toast.LENGTH_LONG).show()
-            })
+                val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+                builder.setTitle(getString(R.string.dialog_title))
+                builder.setMessage("$name $surname")
+                // dos parámetros, el mensaje y el evento, que ahora fue recortado a dialogInterface
+                // dentro de las llaves metemos el Toast para probar el evento
+                builder.setPositiveButton(getString(R.string.dialog_ok), { dialogInterface, i ->
+                    Toast.makeText(this, "positive button", Toast.LENGTH_SHORT).show()
+                })
+                // Ahora el botón negative, con la opción por defecto
+                // también es posible usar null en vez del click listener
+                /*
+                builder.setNegativeButton(getString(R.string.dialog_cancel), DialogInterface.OnClickListener { dialog, which ->
+                    Toast.makeText(this, "negative button", Toast.LENGTH_LONG).show()
+                })
+                */
+                builder.setNegativeButton(getString(R.string.dialog_cancel), null)
 
-            // Necesitamos construir ese dialog
-            val dialog: AlertDialog = builder.create()
-            dialog.show()
-
+                // Necesitamos construir ese dialog
+                val dialog: AlertDialog = builder.create()
+                dialog.show()
+            }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun validFields(): Boolean {
+        var isValid = true
+
+        if(binding.etName.text.isNullOrEmpty()) {
+            isValid = false
+        }
+
+
+
+        return isValid
     }
 
 }
