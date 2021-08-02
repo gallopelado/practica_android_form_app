@@ -96,6 +96,22 @@ class MainActivity : AppCompatActivity() {
             binding.tilSurname.error = null
         }
 
+        if(binding.etHeight.text.isNullOrEmpty()) {
+            binding.tilHeight.run {
+                error = getString(R.string.common_mandatory_hint)
+                requestFocus()
+            }
+            isValid = false
+        } else if(binding.etHeight.text.toString().toInt() < 50) {
+            binding.tilHeight.run {
+                error = getString(R.string.helper_height)
+                requestFocus()
+            }
+            isValid = false
+        } else {
+            binding.tilHeight.error = null
+        }
+
         return isValid
     }
 
