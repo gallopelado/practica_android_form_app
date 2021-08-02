@@ -77,10 +77,24 @@ class MainActivity : AppCompatActivity() {
         var isValid = true
 
         if(binding.etName.text.isNullOrEmpty()) {
+            binding.tilName.run {
+                error = getString(R.string.common_mandatory_hint)
+                requestFocus()
+            }
             isValid = false
+        } else {
+            binding.tilName.error = null
         }
 
-
+        if(binding.etSurname.text.isNullOrEmpty()) {
+            binding.tilSurname.run {
+                error = getString(R.string.common_mandatory_hint)
+                requestFocus()
+            }
+            isValid = false
+        } else {
+            binding.tilSurname.error = null
+        }
 
         return isValid
     }
