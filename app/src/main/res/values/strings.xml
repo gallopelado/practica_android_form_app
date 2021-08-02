@@ -9,4 +9,7 @@
     <string name="hint_placebirth">Lugar de nacimiento</string>
     <string name="hint_notes">Notas</string>
     <string name="helper_height">Mínimo 50cm</string>
+    <string name="dialog_title">Datos recolectados</string>
+    <string name="dialog_ok">Limpiar</string>
+    <string name="dialog_cancel">Cancelar</string>
 </resources>
