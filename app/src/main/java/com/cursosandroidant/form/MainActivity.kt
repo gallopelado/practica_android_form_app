@@ -45,12 +45,17 @@ class MainActivity : AppCompatActivity() {
                     findViewById<TextInputEditText>(R.id.etName).text.toString().trim()
                 // Forma nueva con viewbinding
                 val surname: String = binding.etSurname.text.toString().trim()
+                val height: String = binding.etHeight.text.toString().trim()
+                val dateBirth: String = binding.etBirth.text.toString().trim()
+                val country: String = binding.actvCountries.text.toString().trim()
+                val placeBirth: String = binding.etPlaceBirth.text.toString().trim()
+                val notes: String = binding.etNotes.text.toString().trim()
                 // Uso del toast
                 //Toast.makeText(this, "$name $surname", Toast.LENGTH_SHORT).show()
 
                 val builder: AlertDialog.Builder = AlertDialog.Builder(this)
                 builder.setTitle(getString(R.string.dialog_title))
-                builder.setMessage("$name $surname")
+                builder.setMessage(joinData(name, surname, height, dateBirth, country, placeBirth, notes))
                 // dos parámetros, el mensaje y el evento, que ahora fue recortado a dialogInterface
                 // dentro de las llaves metemos el Toast para probar el evento
                 builder.setPositiveButton(getString(R.string.dialog_ok), { dialogInterface, i ->
@@ -71,6 +76,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun joinData(vararg fields:String):String {
+        var result = ""
+        fields.forEach { item ->
+            if(item.isNotEmpty()) {
+                result += "$item\n"
+            }
+        }
+        return result
     }
 
     private fun validFields(): Boolean {
