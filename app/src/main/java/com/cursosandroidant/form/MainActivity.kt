@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.cursosandroidant.form.databinding.ActivityMainBinding
@@ -24,6 +25,20 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         // Se utiliza root, en este caso es nuestro ScrollView del activity_main.xml
         setContentView(binding.root)
+
+        // Arreglo de países
+        val countries = arrayOf("Argentina", "Brasil", "Bolivia", "Paraguay")
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item
+            , countries)
+
+        binding.actvCountries.setAdapter(adapter)
+        binding.actvCountries.setOnItemClickListener { parent, view, position, id ->
+            // nos lleva al siguiente input
+            binding.etPlaceBirth.requestFocus()
+            // a modo educativo, mostramos el item seleccionado
+            Toast.makeText(this, countries.get(position), Toast.LENGTH_SHORT).show()
+        }
 
         // asignar un evento click al datepicker del formulario
         binding.etDateBirth.setOnClickListener {
