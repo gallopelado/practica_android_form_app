@@ -8,7 +8,10 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.cursosandroidant.form.databinding.ActivityMainBinding
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputEditText
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +24,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         // Se utiliza root, en este caso es nuestro ScrollView del activity_main.xml
         setContentView(binding.root)
+
+        // asignar un evento click al datepicker del formulario
+        binding.etDateBirth.setOnClickListener {
+            val builder = MaterialDatePicker.Builder.datePicker()
+            val picker = builder.build()
+
+            picker.addOnPositiveButtonClickListener { timeInMilliseconds ->
+                val dateStr = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                    .apply {
+                        timeZone = TimeZone.getTimeZone("UTC")
+                    }
+                    .format(timeInMilliseconds)
+
+                binding.etDateBirth.setText(dateStr)
+            }
+
+            picker.show(supportFragmentManager, picker.toString())
+        }
+
     }
 
     // Vamos a inflar el menu en esta activity
@@ -46,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                 // Forma nueva con viewbinding
                 val surname: String = binding.etSurname.text.toString().trim()
                 val height: String = binding.etHeight.text.toString().trim()
-                val dateBirth: String = binding.etBirth.text.toString().trim()
+                val dateBirth: String = binding.etDateBirth.text.toString().trim()
                 val country: String = binding.actvCountries.text.toString().trim()
                 val placeBirth: String = binding.etPlaceBirth.text.toString().trim()
                 val notes: String = binding.etNotes.text.toString().trim()
@@ -65,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                         etName.text?.clear()
                         etSurname.text?.clear()
                         etHeight.text?.clear()
-                        etBirth.text?.clear()
+                        etDateBirth.text?.clear()
                         actvCountries.text?.clear()
                         etPlaceBirth.text?.clear()
                         etNotes.text?.clear()
