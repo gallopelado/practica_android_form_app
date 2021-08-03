@@ -58,8 +58,18 @@ class MainActivity : AppCompatActivity() {
                 builder.setMessage(joinData(name, surname, height, dateBirth, country, placeBirth, notes))
                 // dos parámetros, el mensaje y el evento, que ahora fue recortado a dialogInterface
                 // dentro de las llaves metemos el Toast para probar el evento
+                // boton limpiar formulario
                 builder.setPositiveButton(getString(R.string.dialog_ok), { dialogInterface, i ->
-                    Toast.makeText(this, "positive button", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this, "positive button", Toast.LENGTH_SHORT).show()
+                    with(binding){
+                        etName.text?.clear()
+                        etSurname.text?.clear()
+                        etHeight.text?.clear()
+                        etBirth.text?.clear()
+                        actvCountries.text?.clear()
+                        etPlaceBirth.text?.clear()
+                        etNotes.text?.clear()
+                    }
                 })
                 // Ahora el botón negative, con la opción por defecto
                 // también es posible usar null en vez del click listener
